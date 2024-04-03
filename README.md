@@ -1,11 +1,10 @@
-This is a Kotlin Multiplatform project targeting Desktop.
+Minimal reproducible for: https://youtrack.jetbrains.com/issue/KT-67042/
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+Only reproduced when there are at least two targets in the project.
 
+Failed Task: `Task :composeApp:compileCommonMainKotlinMetadata FAILED`
+Error: `Unresolved reference 'convertRadiusToSigma'.`
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+Steps to reproduce:
+1. Clone the project.
+2. Run `./gradlew build`
